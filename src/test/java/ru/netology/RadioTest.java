@@ -8,7 +8,7 @@ class RadioTest {
 
     @Test
     void increaseCurrentStation() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(5, 9, 0, 10,100,0);
         radio.setCurrentStation(radio.getMaxStation());
         radio.increaseCurrentStation();
         assertEquals(radio.getMinStation(),radio.getCurrentStation());
@@ -18,7 +18,7 @@ class RadioTest {
 
     @Test
     void decreaseCurrentStation() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(5, 9, 0, 10,100,0);
         radio.setCurrentStation(radio.getMinStation());
         radio.decreaseCurrentStation();
         assertEquals(radio.getMaxStation(),radio.getCurrentStation());
@@ -28,7 +28,7 @@ class RadioTest {
 
     @Test
     void increaseCurrentVolume() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(5, 9, 0, 10,100,0);
         radio.setCurrentVolume(radio.getMaxVolume());
         radio.increaseCurrentVolume();
         assertEquals(radio.getMaxVolume(), radio.getCurrentVolume());
@@ -39,7 +39,7 @@ class RadioTest {
 
     @Test
     void decreaseCurrentVolume() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(5, 9, 0, 10,100,0);
         radio.setCurrentVolume(radio.getMinVolume());
         radio.decreaseCurrentVolume();
         assertEquals(radio.getMinVolume(),radio.getCurrentVolume());
@@ -50,19 +50,19 @@ class RadioTest {
 
     @Test
     void setCurrentVolume() {
-        Radio radio = new Radio();
-        radio.setCurrentVolume(11);
-        assertEquals(0, radio.getCurrentVolume());
+        Radio radio = new Radio(5, 9, 0, 10,100,0);
+        radio.setCurrentVolume(101);
+        assertEquals(10, radio.getCurrentVolume());
         radio.setCurrentVolume(-1);
-        assertEquals(0, radio.getCurrentVolume());
+        assertEquals(10, radio.getCurrentVolume());
     }
 
     @Test
     void setCurrentStation() {
-        Radio radio = new Radio();
-        radio.setCurrentStation(10);
-        assertEquals(0, radio.getCurrentStation());
+        Radio radio = new Radio(5, 9, 0, 10,100,0);
+        radio.setCurrentStation(11);
+        assertEquals(5, radio.getCurrentStation());
         radio.setCurrentStation(-1);
-        assertEquals(0, radio.getCurrentStation());
+        assertEquals(5, radio.getCurrentStation());
     }
 }
